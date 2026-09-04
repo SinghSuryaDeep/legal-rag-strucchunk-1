@@ -20,7 +20,7 @@ We propose **StrucChunk** (Structure-Aware Chunking) combined with hybrid dense-
 - **GDPR** (501 queries, EU regulation): Recall@5 = 0.868 vs. 0.818 baseline (+6.1%)
 - **NitiBench-CCL** (3,730 queries, Thai financial law): HR@5 = 0.856 vs. 0.594 naive (+44.1%)
 
-All improvements are statistically significant (p ≤ 0.0001, Wilcoxon signed-rank with Benjamini-Hochberg correction).
+All improvements are statistically significant (p ≤ 0.002, Wilcoxon signed-rank with Benjamini-Hochberg correction; Cohen's d 0.14–0.69).
 
 ## Repository Structure
 
