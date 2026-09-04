@@ -93,7 +93,7 @@ def main():
 
     print(f"\n✅ Chunking quality analysis complete!")
     print(f"   Results saved to: {out_path}")
-    print(f"\n   ➜ Use these numbers for Table 1 in paper_final_TMLR.md")
+    print(f"\n   ➜ Use these numbers for Table 1 in paper_final.md")
     print(f"   ➜ Section heading: '5.1 Chunking Quality Analysis'")
 
     # Print the paper-ready claim sentence

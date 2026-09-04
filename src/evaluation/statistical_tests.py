@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 # ── [NEW] ────────────────────────────────────────────────────────────────────
 def format_p_value(p: float) -> str:
     """
-    Canonical p-value display for TMLR tables.
+    Canonical p-value display for publication tables.
 
     CHANGE FROM v1: v1 printed raw floats, which displayed as "0.0000" for
     very small p-values. This is scientifically wrong (p=0 doesn't exist)

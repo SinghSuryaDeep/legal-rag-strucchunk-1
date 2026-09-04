@@ -1,8 +1,8 @@
-# Structure-Aware Retrieval for Legal Document RAG
+# StrucChunk: Structure-Aware Retrieval for Legal Document RAG
 
-**Anonymous submission to TMLR**
+**Surya Deep Singh, Ashutosh Tripathi, Gaurav Deep Singh**
 
-This repository contains the implementation and evaluation code for "Structure-Aware Retrieval for Legal Document RAG: A Study on Domain-Specific Chunking and Hybrid Search."
+This repository contains the implementation and evaluation code for "StrucChunk: Structure-Aware Retrieval for Legal Document RAG."
 
 ## Overview
 
@@ -69,9 +69,9 @@ All improvements are statistically significant (p ≤ 0.002, Wilcoxon signed-ran
 ### Setup
 
 ```bash
-# Clone repository (replace with actual anonymous URL from 4open.science)
-git clone [ANONYMOUS-URL-HERE]
-cd legal-rag-strucchunk-TMLR
+# Clone repository
+git clone https://github.com/SinghSuryaDeep/legal-rag-strucchunk-1.git
+cd legal-rag-strucchunk-1
 
 # Create virtual environment
 python3 -m venv venv
@@ -240,10 +240,10 @@ results/
 ## Citation
 
 ```bibtex
-@article{anonymous2026strucchunk,
-  title={Structure-Aware Retrieval for Legal Document RAG: A Study on Domain-Specific Chunking and Hybrid Search},
-  author={Anonymous Authors},
-  journal={Transactions on Machine Learning Research (TMLR)},
+@article{singh2026strucchunk,
+  title={StrucChunk: Structure-Aware Retrieval for Legal Document RAG},
+  author={Singh, Surya Deep and Tripathi, Ashutosh and Singh, Gaurav Deep},
+  journal={Soft Computing},
   year={2026},
   note={Under review}
 }
@@ -266,8 +266,4 @@ We thank the creators of:
 
 ## Contact
 
-For questions about this anonymous submission, please use the TMLR review system.
-
----
-
-**Note**: This is an anonymous submission. Author information and institutional affiliations will be added upon acceptance.
+For questions, please contact the corresponding author: suryadeepsingh95@gmail.com

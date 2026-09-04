@@ -12,7 +12,7 @@ contribution from the retrieval architecture contribution.
 These metrics are computed directly from the parsed document, requiring
 no retrieval pipeline and no benchmark.
 
-Why this matters for TMLR:
+Why this matters:
   "The paper shows better end-to-end results, but cannot attribute the
    improvement to chunking specifically."  ← This reviewer comment is
    blocked by adding these metrics to Section 5.1 (Chunking Quality).
