@@ -528,25 +528,26 @@ regex fallback).
 \caption{StrucChunk}
 \label{alg:strucchunk}
 \begin{algorithmic}[1]
-\Require $chunk\_size$, $overlap$, $max\_refs{=}3$, $summary\_len{=}200$
+\Require $chunk\_size,\ overlap,\ max\_refs = 3,\ summary\_len = 200$
 \Function{StrucChunk}{$document$}
-    \State $chunks \gets [\,]$
-    \For{$section$ \textbf{in} $document.sections$}
+    \State $chunks \gets \emptyset$
+    \For{$section \in document.sections$}
         \State $breadcrumb \gets \Call{BuildBreadcrumb}{section, document}$
-        \Comment{$title > $ Chapter $parent > $ Section $number$}
+        \Comment{title $>$ Chapter parent $>$ Section number}
         \State $refs \gets \Call{ResolveCrossReferences}{section, document}$
-        \Comment{regex match $\to$ keep only IDs resolving to a known section $\to$ dedupe $\to$ cap at $max\_refs$}
-        \State $text \gets [breadcrumb] \,\|\, \textsc{``Section } number.\ title\text{''} \,\|\, section.content$
+        \Comment{regex match, keep only IDs resolving to a known section, dedupe, cap at $max\_refs$}
+        \State $text \gets \Call{BuildText}{breadcrumb, section}$
+        \Comment{breadcrumb line, then ``Section number. title'', then section content}
         \If{$refs \neq \emptyset$}
-            \State $text \gets text \,\|\, \textsc{[Cross-References:]} \,\|\, \{title_r \,{+}\, content_r[{:}summary\_len] : r \in refs\}$
+            \State $text \gets \Call{AppendCrossRefs}{text, refs, summary\_len}$
         \EndIf
         \State $tokens \gets \Call{len}{text} / 4$ \Comment{character-based approximation, no tokenizer}
         \If{$tokens \le 1.5 \times chunk\_size$}
-            \State $chunks.\Call{append}{text}$
+            \State $chunks \gets chunks \cup \{text\}$
         \Else
             \State $units \gets \Call{SplitByParagraph}{text}$
-            \Comment{any paragraph still $> 1.5{\times}chunk\_size$ is sentence-split (\texttt{nltk.sent\_tokenize}, regex fallback)}
-            \State $chunks.\Call{extend}{\Call{PackWithOverlap}{units, chunk\_size, overlap}}$
+            \Comment{any paragraph still exceeding $1.5 \times chunk\_size$ is sentence-split (\texttt{nltk.sent\_tokenize}, regex fallback)}
+            \State $chunks \gets chunks \cup \Call{PackWithOverlap}{units, chunk\_size, overlap}$
             \Comment{greedily fill $chunk\_size$-token windows; carry $overlap$ tokens from the tail of each window into the next}
         \EndIf
     \EndFor
